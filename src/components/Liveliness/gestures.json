@@ -1,0 +1,26 @@
+{
+
+    "gestures":[
+        {
+            "name":"smile",
+            "description":"Please smile !!!"
+        },
+        {
+            "name":"eyes-open",
+            "description":"Please keep your eyes wide open"
+        },
+        {
+            "name":"eyes- close",
+            "description":"Please close your eyes"
+        },
+        {
+            "name":"head-right",
+            "description":"Please turn your head towards right"
+        },
+        {
+            "name":"head-left",
+            "description":"Please turn your head towards left"
+        }
+        
+    ]
+}

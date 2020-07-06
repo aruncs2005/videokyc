@@ -1,0 +1,76 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "amplify-kycapp-dev-204408-authRole",
+			"UnauthRoleArn": "arn:aws:iam::365792799466:role/amplify-kycapp-dev-204408-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::365792799466:role/amplify-kycapp-dev-204408-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "amplify-kycapp-dev-204408-deployment",
+			"UnauthRoleName": "amplify-kycapp-dev-204408-unauthRole",
+			"StackName": "amplify-kycapp-dev-204408",
+			"StackId": "arn:aws:cloudformation:us-east-1:365792799466:stack/amplify-kycapp-dev-204408/5c83e900-bae4-11ea-8790-12a6272b4c0e",
+			"AmplifyAppId": "dr5b360wg6lbu"
+		}
+	},
+	"api": {},
+	"auth": {
+		"kycappc8e9e333": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false,
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/auth/kycappc8e9e333-cloudformation-template.yml",
+				"logicalId": "authkycappc8e9e333"
+			},
+			"lastPushTimeStamp": "2020-07-06T06:08:04.617Z",
+			"output": {
+				"AppClientSecret": "gobsurq2ggkp5s8hr7aea3e0olpfej5lmkme5tobc9bruvf7tc4",
+				"UserPoolId": "us-east-1_i65vp3s3t",
+				"AppClientIDWeb": "7voq7afnm97j3rlr4gi0on7800",
+				"AppClientID": "6sb73spadmnoqvtv6r9qptd2ti",
+				"IdentityPoolId": "us-east-1:94375a60-921c-4901-97b5-a9dfb603e3d6",
+				"IdentityPoolName": "kycappc8e9e333_identitypool_c8e9e333__dev",
+				"UserPoolName": "kycappc8e9e333_userpool_c8e9e333"
+			},
+			"lastPushDirHash": "JpBAWD9Luc3kLT+hJsSSkZew6a4="
+		}
+	},
+	"hosting": {
+		"amplifyhosting": {
+			"service": "amplifyhosting",
+			"providerPlugin": "awscloudformation",
+			"type": "manual",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
+				"logicalId": "hostingamplifyhosting"
+			},
+			"lastPushTimeStamp": "2020-07-06T06:08:04.618Z",
+			"output": {},
+			"lastPushDirHash": "/+VZ33seFFqAr6wbtptwbINUfSA="
+		}
+	},
+	"function": {
+		"faceprops": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": [],
+			"lastBuildTimeStamp": "2020-07-06T06:05:06.327Z",
+			"lastPackageTimeStamp": "2020-07-06T06:05:09.975Z",
+			"distZipFilename": "faceprops-4473755852595a6a564b-build.zip",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/function/faceprops-cloudformation-template.json",
+				"logicalId": "functionfaceprops"
+			},
+			"lastPushTimeStamp": "2020-07-06T06:08:04.622Z",
+			"output": {
+				"Region": "us-east-1",
+				"Arn": "arn:aws:lambda:us-east-1:365792799466:function:faceprops-dev",
+				"Name": "faceprops-dev",
+				"LambdaExecutionRole": "kycappLambdaRole680aab5f-dev"
+			},
+			"lastPushDirHash": "PWCmmA4sNSh5BjSrKMiJZScT3dA="
+		}
+	}
+}
