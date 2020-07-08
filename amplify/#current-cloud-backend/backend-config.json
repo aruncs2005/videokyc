@@ -1,5 +1,20 @@
 {
-	"api": {},
+	"api": {
+		"livelinessapi": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "facefeatureslambda",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		}
+	},
 	"auth": {
 		"kycappc8e9e333": {
 			"service": "Cognito",
@@ -21,6 +36,11 @@
 			"providerPlugin": "awscloudformation",
 			"service": "Lambda",
 			"dependsOn": []
+		},
+		"facefeatureslambda": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda"
 		}
 	}
 }

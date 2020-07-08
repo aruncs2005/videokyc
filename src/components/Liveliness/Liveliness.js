@@ -5,6 +5,7 @@ import gest_data from './gestures.json'
 import Alert from 'react-bootstrap/Alert'
 import Accordion from "react-bootstrap/Accordion"
 import Card from "react-bootstrap/Card"
+import livelinessAPI from "../../services/facefeatures";
 
 const videoConstraints = {
     width: 1280,
@@ -32,11 +33,24 @@ function shuffleArray(array) {
       setGestures(gest_data["gestures"])
     }, []);
 
+
+    const gesture_2 = (shuffled_gestures) => {
+      console.log("invoking gesture 2")
+
+    }
+
+    const gesture_1 = (shuffled_gestures,gesture_2) => {
+
+      
+    }
+
     const invoke_api = (shuffled_gestures) => {
       setShowSpinner(false);
       const imageSrc = webcamRef.current.getScreenshot();
       console.log("Gesture name ::",shuffled_gestures[0]["description"]);
       console.log("based 64 data :::",imageSrc);
+      let response = livelinessAPI.identify_face_features(imageSrc);
+      console.log(response);
       setTimeout(() => {
         const imageSrc2 = webcamRef.current.getScreenshot();
         setAlertMessage(shuffled_gestures[1]["description"]);

@@ -12,7 +12,33 @@
 			"AmplifyAppId": "dr5b360wg6lbu"
 		}
 	},
-	"api": {},
+	"api": {
+		"livelinessapi": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "facefeatureslambda",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/api/livelinessapi-cloudformation-template.json",
+				"logicalId": "apilivelinessapi"
+			},
+			"lastPushTimeStamp": "2020-07-06T08:13:17.138Z",
+			"output": {
+				"ApiName": "livelinessapi",
+				"RootUrl": "https://nj5w63qif1.execute-api.us-east-1.amazonaws.com/dev",
+				"ApiId": "nj5w63qif1"
+			},
+			"lastPushDirHash": "QCRNqWYhebs5EyUORJC3hc2XMjY="
+		}
+	},
 	"auth": {
 		"kycappc8e9e333": {
 			"service": "Cognito",
@@ -23,7 +49,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/auth/kycappc8e9e333-cloudformation-template.yml",
 				"logicalId": "authkycappc8e9e333"
 			},
-			"lastPushTimeStamp": "2020-07-06T06:08:04.617Z",
+			"lastPushTimeStamp": "2020-07-06T08:13:17.130Z",
 			"output": {
 				"AppClientSecret": "gobsurq2ggkp5s8hr7aea3e0olpfej5lmkme5tobc9bruvf7tc4",
 				"UserPoolId": "us-east-1_i65vp3s3t",
@@ -45,7 +71,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
 				"logicalId": "hostingamplifyhosting"
 			},
-			"lastPushTimeStamp": "2020-07-06T06:08:04.618Z",
+			"lastPushTimeStamp": "2020-07-06T08:13:17.132Z",
 			"output": {},
 			"lastPushDirHash": "/+VZ33seFFqAr6wbtptwbINUfSA="
 		}
@@ -63,7 +89,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/function/faceprops-cloudformation-template.json",
 				"logicalId": "functionfaceprops"
 			},
-			"lastPushTimeStamp": "2020-07-06T06:08:04.622Z",
+			"lastPushTimeStamp": "2020-07-06T08:13:17.134Z",
 			"output": {
 				"Region": "us-east-1",
 				"Arn": "arn:aws:lambda:us-east-1:365792799466:function:faceprops-dev",
@@ -71,6 +97,26 @@
 				"LambdaExecutionRole": "kycappLambdaRole680aab5f-dev"
 			},
 			"lastPushDirHash": "PWCmmA4sNSh5BjSrKMiJZScT3dA="
+		},
+		"facefeatureslambda": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"lastBuildTimeStamp": "2020-07-06T08:11:15.453Z",
+			"lastPackageTimeStamp": "2020-07-06T08:11:17.439Z",
+			"distZipFilename": "facefeatureslambda-304e6a6e33512b313935-build.zip",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/function/facefeatureslambda-cloudformation-template.json",
+				"logicalId": "functionfacefeatureslambda"
+			},
+			"lastPushTimeStamp": "2020-07-06T08:13:17.138Z",
+			"output": {
+				"Region": "us-east-1",
+				"Arn": "arn:aws:lambda:us-east-1:365792799466:function:facefeatureslambda-dev",
+				"Name": "facefeatureslambda-dev",
+				"LambdaExecutionRole": "kycappLambdaRole103c816e-dev"
+			},
+			"lastPushDirHash": "4i3PkqaygFTpqWvxZTDI2H1S9EU="
 		}
 	}
 }

@@ -68,6 +68,33 @@
 				}
 			}
 		},
+		"apilivelinessapi": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/api/livelinessapi-cloudformation-template.json",
+				"Parameters": {
+					"authRoleName": {
+						"Ref": "AuthRoleName"
+					},
+					"unauthRoleName": {
+						"Ref": "UnauthRoleName"
+					},
+					"functionfacefeatureslambdaName": {
+						"Fn::GetAtt": [
+							"functionfacefeatureslambda",
+							"Outputs.Name"
+						]
+					},
+					"functionfacefeatureslambdaArn": {
+						"Fn::GetAtt": [
+							"functionfacefeatureslambda",
+							"Outputs.Arn"
+						]
+					},
+					"env": "dev"
+				}
+			}
+		},
 		"authkycappc8e9e333": {
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
@@ -131,6 +158,15 @@
 			"Type": "AWS::CloudFormation::Stack",
 			"Properties": {
 				"TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/function/faceprops-cloudformation-template.json",
+				"Parameters": {
+					"env": "dev"
+				}
+			}
+		},
+		"functionfacefeatureslambda": {
+			"Type": "AWS::CloudFormation::Stack",
+			"Properties": {
+				"TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/function/facefeatureslambda-cloudformation-template.json",
 				"Parameters": {
 					"env": "dev"
 				}

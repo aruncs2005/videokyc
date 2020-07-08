@@ -14,6 +14,10 @@
             "description":"Please close your eyes"
         },
         {
+            "name":"mouth-open",
+            "description":"Please open your mouth :)"
+        },
+        {
             "name":"head-right",
             "description":"Please turn your head towards right"
         },
