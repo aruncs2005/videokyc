@@ -4,10 +4,15 @@ import Form from "react-bootstrap/Form"
 import Accordion from "react-bootstrap/Accordion"
 import Card from "react-bootstrap/Card"
 
- export default () => {
-   
-       return (
-      <>
+class Upload extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+
+    render() {
+        
+        return (
+            <div>
          <Accordion defaultActiveKey="0">
                 <Card>
                     <Card.Header>
@@ -18,29 +23,32 @@ import Card from "react-bootstrap/Card"
                     <Accordion.Collapse eventKey="0">
                     <Card.Body>
                     <Form>
-        <Form.Group controlId="exampleForm.ControlSelect1">
-            <Form.Label>Choose document type</Form.Label>
-            <Form.Control as="select">
-            <option>Adhaar Card</option>
-            <option>PAN</option>
-            <option>Passport</option>
-            </Form.Control>
-        </Form.Group>
+                        <Form.Group controlId="exampleForm.ControlSelect1">
+                            <Form.Label>Choose document type</Form.Label>
+                            <Form.Control as="select">
+                            <option>Adhaar Card</option>
+                            <option>PAN</option>
+                            <option>Passport</option>
+                            </Form.Control>
+                        </Form.Group>
 
-            <Form.Group>
-                <Form.File id="exampleFormControlFile1" label="Upload the selected ID document" />
-            </Form.Group>
+                        <Form.Group>
+                            <Form.File id="exampleFormControlFile1" label="Upload the selected ID document" />
+                        </Form.Group>
 
-            <Button variant="primary" type="submit">
-                    Submit Documents
-             </Button>
-        </Form>
+                        <Button variant="primary" type="submit">
+                                Submit Documents
+                        </Button>
+                    </Form>
 
                     </Card.Body>
                     </Accordion.Collapse>
                 </Card>
         
         </Accordion>
-      </>
-    );
-  };
+      </div>
+        )
+    }
+}
+
+ export default Upload
