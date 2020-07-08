@@ -1,1 +1,3 @@
 node_modules
+amplify/.config/local-aws-info.json
+amplify/.config/local-env-info.json
