@@ -1,2 +1,0 @@
-(this["webpackJsonpkyc-app"]=this["webpackJsonpkyc-app"]||[]).push([[13],{263:function(t,e,n){"use strict";n.r(e),n.d(e,"amplify_container",(function(){return i}));var c=n(86),i=function(){function t(t){Object(c.g)(this,t)}return t.prototype.render=function(){return Object(c.f)(c.a,null,Object(c.f)("slot",null))},t}();i.style=":host{display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;height:100vh}"}}]);
-//# sourceMappingURL=13.6251b430.chunk.js.map
