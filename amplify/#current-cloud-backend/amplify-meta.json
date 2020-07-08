@@ -30,13 +30,38 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/api/livelinessapi-cloudformation-template.json",
 				"logicalId": "apilivelinessapi"
 			},
-			"lastPushTimeStamp": "2020-07-06T08:13:17.138Z",
+			"lastPushTimeStamp": "2020-07-08T09:50:59.075Z",
 			"output": {
 				"ApiName": "livelinessapi",
 				"RootUrl": "https://nj5w63qif1.execute-api.us-east-1.amazonaws.com/dev",
 				"ApiId": "nj5w63qif1"
 			},
 			"lastPushDirHash": "QCRNqWYhebs5EyUORJC3hc2XMjY="
+		},
+		"livelinessNode": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "faceNode",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/api/livelinessNode-cloudformation-template.json",
+				"logicalId": "apilivelinessNode"
+			},
+			"lastPushTimeStamp": "2020-07-08T09:50:59.093Z",
+			"output": {
+				"ApiName": "livelinessNode",
+				"RootUrl": "https://vrs7uzp6ck.execute-api.us-east-1.amazonaws.com/dev",
+				"ApiId": "vrs7uzp6ck"
+			},
+			"lastPushDirHash": "ZfwS/r43kctjei/8F590zeqHx8Y="
 		}
 	},
 	"auth": {
@@ -49,7 +74,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/auth/kycappc8e9e333-cloudformation-template.yml",
 				"logicalId": "authkycappc8e9e333"
 			},
-			"lastPushTimeStamp": "2020-07-06T08:13:17.130Z",
+			"lastPushTimeStamp": "2020-07-08T09:50:59.079Z",
 			"output": {
 				"AppClientSecret": "gobsurq2ggkp5s8hr7aea3e0olpfej5lmkme5tobc9bruvf7tc4",
 				"UserPoolId": "us-east-1_i65vp3s3t",
@@ -71,7 +96,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
 				"logicalId": "hostingamplifyhosting"
 			},
-			"lastPushTimeStamp": "2020-07-06T08:13:17.132Z",
+			"lastPushTimeStamp": "2020-07-08T09:50:59.082Z",
 			"output": {},
 			"lastPushDirHash": "/+VZ33seFFqAr6wbtptwbINUfSA="
 		}
@@ -89,7 +114,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/function/faceprops-cloudformation-template.json",
 				"logicalId": "functionfaceprops"
 			},
-			"lastPushTimeStamp": "2020-07-06T08:13:17.134Z",
+			"lastPushTimeStamp": "2020-07-08T09:50:59.084Z",
 			"output": {
 				"Region": "us-east-1",
 				"Arn": "arn:aws:lambda:us-east-1:365792799466:function:faceprops-dev",
@@ -109,7 +134,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/function/facefeatureslambda-cloudformation-template.json",
 				"logicalId": "functionfacefeatureslambda"
 			},
-			"lastPushTimeStamp": "2020-07-06T08:13:17.138Z",
+			"lastPushTimeStamp": "2020-07-08T09:50:59.086Z",
 			"output": {
 				"Region": "us-east-1",
 				"Arn": "arn:aws:lambda:us-east-1:365792799466:function:facefeatureslambda-dev",
@@ -117,6 +142,27 @@
 				"LambdaExecutionRole": "kycappLambdaRole103c816e-dev"
 			},
 			"lastPushDirHash": "4i3PkqaygFTpqWvxZTDI2H1S9EU="
+		},
+		"faceNode": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": [],
+			"lastBuildTimeStamp": "2020-07-08T09:49:08.390Z",
+			"lastPackageTimeStamp": "2020-07-08T09:49:09.568Z",
+			"distZipFilename": "faceNode-3344355839762f727857-build.zip",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/function/faceNode-cloudformation-template.json",
+				"logicalId": "functionfaceNode"
+			},
+			"lastPushTimeStamp": "2020-07-08T09:50:59.093Z",
+			"output": {
+				"Region": "us-east-1",
+				"Arn": "arn:aws:lambda:us-east-1:365792799466:function:faceNode-dev",
+				"Name": "faceNode-dev",
+				"LambdaExecutionRole": "kycappLambdaRole7a5961b9-dev"
+			},
+			"lastPushDirHash": "xjs2c8ELLsPq96YXPS0h2XFP3mA="
 		}
 	}
 }

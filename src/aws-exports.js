@@ -8,6 +8,11 @@ const awsmobile = {
             "name": "livelinessapi",
             "endpoint": "https://nj5w63qif1.execute-api.us-east-1.amazonaws.com/dev",
             "region": "us-east-1"
+        },
+        {
+            "name": "livelinessNode",
+            "endpoint": "https://vrs7uzp6ck.execute-api.us-east-1.amazonaws.com/dev",
+            "region": "us-east-1"
         }
     ],
     "aws_cognito_identity_pool_id": "us-east-1:94375a60-921c-4901-97b5-a9dfb603e3d6",
