@@ -5,8 +5,10 @@ Amplify.configure(awsconfig);
 
 
 const identify_face_features  = data =>{
-    const apiName = 'livelinessapi'; 
-    const path = '/facefeatures'; 
+    // const apiName = 'livelinessapi'; 
+    const apiName = 'livelinessNode'; 
+    // const path = '/facefeatures'; 
+    const path = '/item'; 
     const myInit = {
         body: { image_bytes: data}, 
         headers: {},
