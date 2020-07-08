@@ -90,7 +90,7 @@
             ],
             "paths": {
               
-              "/items": {
+              "/item": {
                 "options": {
                   "consumes": [
                     "application/json"
@@ -189,7 +189,7 @@
                   }
                 }
               },
-              "/items/{proxy+}": {
+              "/item/{proxy+}": {
                 "options": {
                   "consumes": [
                     "application/json"

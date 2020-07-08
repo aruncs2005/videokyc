@@ -1,7 +1,7 @@
 {
     "paths": [
         {
-            "name": "/items",
+            "name": "/item",
             "lambdaFunction": "faceNode",
             "privacy": {
                 "open": true
