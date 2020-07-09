@@ -29,46 +29,46 @@ class Upload extends React.Component {
 
         return (
             <div>
-         <Accordion defaultActiveKey="0">
-                <Card>
-                    <Card.Header>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                        Please upload your ID documents.
-                    </Accordion.Toggle>
-                    </Card.Header>
-                    <Accordion.Collapse eventKey="0">
-                    <Card.Body>
-                    <Form>
-                        <Form.Group controlId="exampleForm.ControlSelect1">
-                            <Form.Label>Choose document type</Form.Label>
-                            <Form.Control as="select" value={this.state.documentType}>
-                                {this.state.documentTypes.map((docType, index) =>
-                                    <option selected={this.state.documentType === docType.key} key={index} value={docType.key}>{docType.description}</option>
-                                )}
-                            </Form.Control>
-                        </Form.Group>
+                <Accordion defaultActiveKey="0">
+                        <Card>
+                            <Card.Header>
+                            <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                                Please upload your ID documents.
+                            </Accordion.Toggle>
+                            </Card.Header>
+                            <Accordion.Collapse eventKey="0">
+                            <Card.Body>
+                            <Form>
+                                <Form.Group controlId="exampleForm.ControlSelect1">
+                                    <Form.Label>Choose document type</Form.Label>
+                                    <Form.Control as="select" value={this.state.documentType}>
+                                        {this.state.documentTypes.map((docType, index) =>
+                                            <option selected={this.state.documentType === docType.key} key={index} value={docType.key}>{docType.description}</option>
+                                        )}
+                                    </Form.Control>
+                                </Form.Group>
 
-                        <Form.Group>
-                            <Form.File id="exampleFormControlFile1" label="Upload front page of document" />
-                        </Form.Group>
+                                <Form.Group>
+                                    <Form.File id="exampleFormControlFile1" label="Upload front page of document" />
+                                </Form.Group>
 
-                        <Form.Group>
-                            <Form.File id="exampleFormControlFile2" label="Upload back page document" />
-                        </Form.Group>
+                                <Form.Group>
+                                    <Form.File id="exampleFormControlFile2" label="Upload back page document" />
+                                </Form.Group>
 
-                        <Button variant="primary" type="submit">
-                                Submit Documents
-                        </Button>
-                    </Form>
+                                <Button variant="primary" type="submit">
+                                        Submit Documents
+                                </Button>
+                            </Form>
 
-                    </Card.Body>
-                    </Accordion.Collapse>
-                </Card>
-        
-        </Accordion>
-      </div>
-        )
+                            </Card.Body>
+                            </Accordion.Collapse>
+                        </Card>
+                
+                </Accordion>
+            </div> 
+      );
     }
-}
+  }
 
- export default Upload
+  export default Upload

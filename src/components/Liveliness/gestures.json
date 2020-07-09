@@ -6,24 +6,25 @@
             "description":"Please smile !!!"
         },
         {
-            "name":"eyes-open",
+            "name":"eyesOpen",
             "description":"Please keep your eyes wide open"
         },
         {
-            "name":"eyes- close",
+            "name":"eyesClose",
             "description":"Please close your eyes"
+            
         },
         {
-            "name":"mouth-open",
+            "name":"mouthOpen",
             "description":"Please open your mouth :)"
         },
         {
-            "name":"head-right",
-            "description":"Please turn your head towards right"
+            "name":"headRight",
+            "description":"Please turn your head sligthly towards right"
         },
         {
-            "name":"head-left",
-            "description":"Please turn your head towards left"
+            "name":"headLeft",
+            "description":"Please turn your head slightly towards left"
         }
         
     ]

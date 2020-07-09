@@ -64,11 +64,11 @@
 						"Arn"
 					]
 				},
-				"Runtime": "python3.8",
+				"Runtime": "python3.6",
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-kycapp-dev-204408-deployment",
-					"S3Key": "amplify-builds/livedetectorlambda-42354f3435704b747538-build.zip"
+					"S3Key": "amplify-builds/livedetectorlambda-6f614a50524d4b63384c-build.zip"
 				}
 			}
 		},
