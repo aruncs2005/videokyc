@@ -1,26 +1,12 @@
 {
 	"api": {
-		"livelinessapi": {
+		"livelinessdetector": {
 			"service": "API Gateway",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [
 				{
 					"category": "function",
-					"resourceName": "facefeatureslambda",
-					"attributes": [
-						"Name",
-						"Arn"
-					]
-				}
-			]
-		},
-		"livelinessNode": {
-			"service": "API Gateway",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": [
-				{
-					"category": "function",
-					"resourceName": "faceNode",
+					"resourceName": "livedetectorlambda",
 					"attributes": [
 						"Name",
 						"Arn"
@@ -45,22 +31,33 @@
 		}
 	},
 	"function": {
-		"faceprops": {
+		"livedetectorlambda": {
 			"build": true,
 			"providerPlugin": "awscloudformation",
 			"service": "Lambda",
 			"dependsOn": []
 		},
-		"facefeatureslambda": {
-			"build": true,
-			"providerPlugin": "awscloudformation",
-			"service": "Lambda"
-		},
-		"faceNode": {
-			"build": true,
-			"providerPlugin": "awscloudformation",
+		"S3Triggerfc649c0f": {
 			"service": "Lambda",
-			"dependsOn": []
+			"providerPlugin": "awscloudformation",
+			"build": true
+		}
+	},
+	"storage": {
+		"kycStorage": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "S3Triggerfc649c0f",
+					"attributes": [
+						"Name",
+						"Arn",
+						"LambdaExecutionRole"
+					]
+				}
+			]
 		}
 	}
 }

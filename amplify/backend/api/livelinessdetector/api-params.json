@@ -1,0 +1,34 @@
+{
+    "paths": [
+        {
+            "name": "/liveliness",
+            "lambdaFunction": "livedetectorlambda",
+            "privacy": {
+                "open": true
+            }
+        }
+    ],
+    "resourceName": "livelinessdetector",
+    "apiName": "livelinessdetector",
+    "functionArns": [
+        {
+            "lambdaFunction": "livedetectorlambda"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-kycapp-dev-204408-authRole",
+        "unAuthRoleName": "amplify-kycapp-dev-204408-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "livedetectorlambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

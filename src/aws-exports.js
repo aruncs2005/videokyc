@@ -5,13 +5,8 @@ const awsmobile = {
     "aws_project_region": "us-east-1",
     "aws_cloud_logic_custom": [
         {
-            "name": "livelinessapi",
-            "endpoint": "https://nj5w63qif1.execute-api.us-east-1.amazonaws.com/dev",
-            "region": "us-east-1"
-        },
-        {
-            "name": "livelinessNode",
-            "endpoint": "https://vrs7uzp6ck.execute-api.us-east-1.amazonaws.com/dev",
+            "name": "livelinessdetector",
+            "endpoint": "https://x53fjg7mk0.execute-api.us-east-1.amazonaws.com/dev",
             "region": "us-east-1"
         }
     ],
@@ -19,7 +14,9 @@ const awsmobile = {
     "aws_cognito_region": "us-east-1",
     "aws_user_pools_id": "us-east-1_i65vp3s3t",
     "aws_user_pools_web_client_id": "7voq7afnm97j3rlr4gi0on7800",
-    "oauth": {}
+    "oauth": {},
+    "aws_user_files_s3_bucket": "kyc-storag-bucket204408-dev",
+    "aws_user_files_s3_bucket_region": "us-east-1"
 };
 
 
