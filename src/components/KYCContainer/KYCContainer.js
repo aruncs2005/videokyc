@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import Webcam from "react-webcam";
+import React from 'react'
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -8,9 +7,8 @@ import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import Button from 'react-bootstrap/Button'
-import Alert from "react-bootstrap/Alert"
 
-import { withAuthenticator,AmplifySignOut } from '@aws-amplify/ui-react'
+import { AmplifySignOut } from '@aws-amplify/ui-react'
 
 import Liveliness from '../Liveliness'
 import Upload from '..//Upload'
@@ -34,9 +32,7 @@ class KYCContainer extends React.Component {
   
   
   
-    render() {
-      
-        const name = this.state.name;
+    render() {  
   
       return (
         <div>

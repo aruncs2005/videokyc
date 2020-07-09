@@ -2,7 +2,6 @@ import React,{ useState, useEffect } from "react";
 import Webcam from "react-webcam";
 import Button from 'react-bootstrap/Button'
 import gest_data from './gestures.json'
-import Alert from 'react-bootstrap/Alert'
 import Accordion from "react-bootstrap/Accordion"
 import Card from "react-bootstrap/Card"
 import livelinessAPI from "../../services/facefeatures";
