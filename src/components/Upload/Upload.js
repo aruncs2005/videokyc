@@ -4,15 +4,12 @@ import Form from "react-bootstrap/Form"
 import Accordion from "react-bootstrap/Accordion"
 import Card from "react-bootstrap/Card"
 
-class Upload extends React.Component {
-    constructor(props) {
-      super(props);
-    }
-
-    render() {
-        
-        return (
-            <div>
+ export default ({setTabStatus}) => {
+    const submitID = () => {
+        setTabStatus("AnalysisDetails");
+      } 
+       return (
+      <>
          <Accordion defaultActiveKey="0">
                 <Card>
                     <Card.Header>
@@ -23,32 +20,29 @@ class Upload extends React.Component {
                     <Accordion.Collapse eventKey="0">
                     <Card.Body>
                     <Form>
-                        <Form.Group controlId="exampleForm.ControlSelect1">
-                            <Form.Label>Choose document type</Form.Label>
-                            <Form.Control as="select">
-                            <option>Adhaar Card</option>
-                            <option>PAN</option>
-                            <option>Passport</option>
-                            </Form.Control>
-                        </Form.Group>
+        <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Label>Choose document type</Form.Label>
+            <Form.Control as="select">
+            <option>Adhaar Card</option>
+            <option>PAN</option>
+            <option>Passport</option>
+            </Form.Control>
+        </Form.Group>
 
-                        <Form.Group>
-                            <Form.File id="exampleFormControlFile1" label="Upload the selected ID document" />
-                        </Form.Group>
-
-                        <Button variant="primary" type="submit">
-                                Submit Documents
-                        </Button>
-                    </Form>
+            <Form.Group>
+                <Form.File id="exampleFormControlFile1" label="Upload the selected ID document" />
+            </Form.Group>
+           
+            <Button variant="primary" onClick = {submitID}>
+                    Submit Documents
+             </Button>
+        </Form>
 
                     </Card.Body>
                     </Accordion.Collapse>
                 </Card>
         
         </Accordion>
-      </div>
-        )
-    }
-}
-
- export default Upload
+      </>
+    );
+  };

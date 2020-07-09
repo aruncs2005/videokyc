@@ -1,149 +1,152 @@
 {
-	"providers": {
-		"awscloudformation": {
-			"AuthRoleName": "amplify-kycapp-dev-204408-authRole",
-			"UnauthRoleArn": "arn:aws:iam::365792799466:role/amplify-kycapp-dev-204408-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::365792799466:role/amplify-kycapp-dev-204408-authRole",
-			"Region": "us-east-1",
-			"DeploymentBucketName": "amplify-kycapp-dev-204408-deployment",
-			"UnauthRoleName": "amplify-kycapp-dev-204408-unauthRole",
-			"StackName": "amplify-kycapp-dev-204408",
-			"StackId": "arn:aws:cloudformation:us-east-1:365792799466:stack/amplify-kycapp-dev-204408/5c83e900-bae4-11ea-8790-12a6272b4c0e",
-			"AmplifyAppId": "dr5b360wg6lbu"
-		}
-	},
-	"api": {
-		"livelinessdetector": {
-			"service": "API Gateway",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": [
-				{
-					"category": "function",
-					"resourceName": "livedetectorlambda",
-					"attributes": [
-						"Name",
-						"Arn"
-					]
-				}
-			],
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/api/livelinessdetector-cloudformation-template.json",
-				"logicalId": "apilivelinessdetector"
-			},
-			"lastPushTimeStamp": "2020-07-09T07:19:48.995Z",
-			"output": {
-				"ApiName": "livelinessdetector",
-				"RootUrl": "https://x53fjg7mk0.execute-api.us-east-1.amazonaws.com/dev",
-				"ApiId": "x53fjg7mk0"
-			},
-			"lastPushDirHash": "lLNTBs3l00MoSC7EIE549LoXAHI="
-		}
-	},
-	"auth": {
-		"kycappc8e9e333": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": [],
-			"customAuth": false,
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/auth/kycappc8e9e333-cloudformation-template.yml",
-				"logicalId": "authkycappc8e9e333"
-			},
-			"lastPushTimeStamp": "2020-07-09T07:19:48.998Z",
-			"output": {
-				"AppClientSecret": "gobsurq2ggkp5s8hr7aea3e0olpfej5lmkme5tobc9bruvf7tc4",
-				"UserPoolId": "us-east-1_i65vp3s3t",
-				"AppClientIDWeb": "7voq7afnm97j3rlr4gi0on7800",
-				"AppClientID": "6sb73spadmnoqvtv6r9qptd2ti",
-				"IdentityPoolId": "us-east-1:94375a60-921c-4901-97b5-a9dfb603e3d6",
-				"IdentityPoolName": "kycappc8e9e333_identitypool_c8e9e333__dev",
-				"UserPoolName": "kycappc8e9e333_userpool_c8e9e333"
-			},
-			"lastPushDirHash": "JpBAWD9Luc3kLT+hJsSSkZew6a4="
-		}
-	},
-	"hosting": {
-		"amplifyhosting": {
-			"service": "amplifyhosting",
-			"providerPlugin": "awscloudformation",
-			"type": "manual",
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
-				"logicalId": "hostingamplifyhosting"
-			},
-			"lastPushTimeStamp": "2020-07-09T07:19:48.999Z",
-			"output": {},
-			"lastPushDirHash": "/+VZ33seFFqAr6wbtptwbINUfSA="
-		}
-	},
-	"function": {
-		"livedetectorlambda": {
-			"build": true,
-			"providerPlugin": "awscloudformation",
-			"service": "Lambda",
-			"dependsOn": [],
-			"lastBuildTimeStamp": "2020-07-08T14:26:45.602Z",
-			"lastPackageTimeStamp": "2020-07-08T14:26:48.069Z",
-			"distZipFilename": "livedetectorlambda-42354f3435704b747538-build.zip",
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/function/livedetectorlambda-cloudformation-template.json",
-				"logicalId": "functionlivedetectorlambda"
-			},
-			"lastPushTimeStamp": "2020-07-09T07:19:49.002Z",
-			"output": {
-				"Region": "us-east-1",
-				"Arn": "arn:aws:lambda:us-east-1:365792799466:function:livedetectorlambda-dev",
-				"Name": "livedetectorlambda-dev",
-				"LambdaExecutionRole": "kycappLambdaRoleee3e3ef1-dev"
-			},
-			"lastPushDirHash": "fE2dLihR/9h8VZDHQ9GgoWDhxrk="
-		},
-		"S3Triggerfc649c0f": {
-			"service": "Lambda",
-			"providerPlugin": "awscloudformation",
-			"build": true,
-			"lastBuildTimeStamp": "2020-07-09T07:17:01.961Z",
-			"lastPackageTimeStamp": "2020-07-09T07:17:02.004Z",
-			"distZipFilename": "S3Triggerfc649c0f-72514e6577782b473359-build.zip",
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/function/S3Triggerfc649c0f-cloudformation-template.json",
-				"logicalId": "functionS3Triggerfc649c0f"
-			},
-			"lastPushTimeStamp": "2020-07-09T07:19:49.011Z",
-			"output": {
-				"Region": "us-east-1",
-				"Arn": "arn:aws:lambda:us-east-1:365792799466:function:S3Triggerfc649c0f-dev",
-				"Name": "S3Triggerfc649c0f-dev",
-				"LambdaExecutionRole": "S3Triggerfc649c0fLambdaRolefc649c0f-dev"
-			},
-			"lastPushDirHash": "5ZdefUuklcxF8htEZ0I8iAyK09w="
-		}
-	},
-	"storage": {
-		"kycStorage": {
-			"service": "S3",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": [
-				{
-					"category": "function",
-					"resourceName": "S3Triggerfc649c0f",
-					"attributes": [
-						"Name",
-						"Arn",
-						"LambdaExecutionRole"
-					]
-				}
-			],
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
-				"logicalId": "storagekycStorage"
-			},
-			"lastPushTimeStamp": "2020-07-09T07:19:49.011Z",
-			"output": {
-				"BucketName": "kyc-storag-bucket204408-dev",
-				"Region": "us-east-1"
-			},
-			"lastPushDirHash": "kLV5ch2YzdpmPqmPb6sZQ5n3Wo0="
-		}
-	}
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-kycapp-dev-204408-authRole",
+            "UnauthRoleArn": "arn:aws:iam::365792799466:role/amplify-kycapp-dev-204408-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::365792799466:role/amplify-kycapp-dev-204408-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-kycapp-dev-204408-deployment",
+            "UnauthRoleName": "amplify-kycapp-dev-204408-unauthRole",
+            "StackName": "amplify-kycapp-dev-204408",
+            "StackId": "arn:aws:cloudformation:us-east-1:365792799466:stack/amplify-kycapp-dev-204408/5c83e900-bae4-11ea-8790-12a6272b4c0e",
+            "AmplifyAppId": "dr5b360wg6lbu"
+        },
+        "categories": {
+            "auth": {
+                "kycappc8e9e333": {}
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "dr5b360wg6lbu",
+                    "type": "manual"
+                }
+            }
+        }
+    },
+    "api": {
+        "livelinessdetector": {
+            "service": "API Gateway",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "livedetectorlambda",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ],
+            "output": {
+                "ApiName": "livelinessdetector",
+                "RootUrl": "https://x53fjg7mk0.execute-api.us-east-1.amazonaws.com/dev",
+                "ApiId": "x53fjg7mk0"
+            },
+            "lastPushTimeStamp": "2020-07-09T13:11:05.915Z",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/api/livelinessdetector-cloudformation-template.json",
+                "logicalId": "apilivelinessdetector"
+            }
+        }
+    },
+    "auth": {
+        "kycappc8e9e333": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [],
+            "customAuth": false,
+            "output": {
+                "AppClientSecret": "gobsurq2ggkp5s8hr7aea3e0olpfej5lmkme5tobc9bruvf7tc4",
+                "UserPoolId": "us-east-1_i65vp3s3t",
+                "AppClientIDWeb": "7voq7afnm97j3rlr4gi0on7800",
+                "AppClientID": "6sb73spadmnoqvtv6r9qptd2ti",
+                "IdentityPoolId": "us-east-1:94375a60-921c-4901-97b5-a9dfb603e3d6",
+                "IdentityPoolName": "kycappc8e9e333_identitypool_c8e9e333__dev",
+                "UserPoolName": "kycappc8e9e333_userpool_c8e9e333"
+            },
+            "lastPushTimeStamp": "2020-07-09T13:11:05.916Z",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/auth/kycappc8e9e333-cloudformation-template.yml",
+                "logicalId": "authkycappc8e9e333"
+            }
+        }
+    },
+    "hosting": {
+        "amplifyhosting": {
+            "service": "amplifyhosting",
+            "providerPlugin": "awscloudformation",
+            "type": "manual",
+            "output": {},
+            "lastPushTimeStamp": "2020-07-09T13:11:05.917Z",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
+                "logicalId": "hostingamplifyhosting"
+            }
+        }
+    },
+    "function": {
+        "livedetectorlambda": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [],
+            "output": {
+                "Region": "us-east-1",
+                "Arn": "arn:aws:lambda:us-east-1:365792799466:function:livedetectorlambda-dev",
+                "Name": "livedetectorlambda-dev",
+                "LambdaExecutionRole": "kycappLambdaRoleee3e3ef1-dev"
+            },
+            "lastPushTimeStamp": "2020-07-09T13:11:05.918Z",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/function/livedetectorlambda-cloudformation-template.json",
+                "logicalId": "functionlivedetectorlambda"
+            },
+            "lastBuildTimeStamp": "2020-07-09T13:07:50.474Z",
+            "lastPackageTimeStamp": "2020-07-09T13:07:52.932Z",
+            "distZipFilename": "livedetectorlambda-6f614a50524d4b63384c-build.zip",
+            "lastPushDirHash": "1oFYglMRSKpH+XdDQCmvkxKYrJE="
+        },
+        "S3Triggerfc649c0f": {
+            "service": "Lambda",
+            "providerPlugin": "awscloudformation",
+            "build": true,
+            "output": {
+                "Region": "us-east-1",
+                "Arn": "arn:aws:lambda:us-east-1:365792799466:function:S3Triggerfc649c0f-dev",
+                "Name": "S3Triggerfc649c0f-dev",
+                "LambdaExecutionRole": "S3Triggerfc649c0fLambdaRolefc649c0f-dev"
+            },
+            "lastPushTimeStamp": "2020-07-09T13:11:05.919Z",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/function/S3Triggerfc649c0f-cloudformation-template.json",
+                "logicalId": "functionS3Triggerfc649c0f"
+            }
+        }
+    },
+    "storage": {
+        "kycStorage": {
+            "service": "S3",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "S3Triggerfc649c0f",
+                    "attributes": [
+                        "Name",
+                        "Arn",
+                        "LambdaExecutionRole"
+                    ]
+                }
+            ],
+            "output": {
+                "BucketName": "kyc-storag-bucket204408-dev",
+                "Region": "us-east-1"
+            },
+            "lastPushTimeStamp": "2020-07-09T13:11:05.920Z",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
+                "logicalId": "storagekycStorage"
+            }
+        }
+    }
 }

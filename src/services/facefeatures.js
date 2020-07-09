@@ -1,28 +1,18 @@
-import Amplify, { API } from 'aws-amplify';
-import awsconfig from '../aws-exports';
-
-Amplify.configure(awsconfig);
+import { API } from 'aws-amplify';
 
 
-const identify_face_features  = data =>{
-    // const apiName = 'livelinessapi'; 
-    const apiName = 'livelinessNode'; 
-    // const path = '/facefeatures'; 
-    const path = '/item'; 
+const identify_face_features  = async data =>{
+    console.log("inside liveliness service:::", data);
+    const apiName = 'livelinessdetector'; 
+    const path = '/liveliness'; 
     const myInit = {
-        body: { image_bytes: data}, 
+        body: { image_bytes: data, height: 450, width:800}, 
         headers: {},
     };
 
-    API
+ return await API
   .post(apiName, path, myInit)
-  .then(response => {
-    // Add your code here
-    return response
-  })
-  .catch(error => {
-    console.log(error.response);
-  });
+ 
 
     
 }

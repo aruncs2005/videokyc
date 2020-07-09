@@ -20,6 +20,9 @@
                     "appId": "dr5b360wg6lbu",
                     "type": "manual"
                 }
+            },
+            "function": {
+                "livedetectorlambda": {}
             }
         }
     }
