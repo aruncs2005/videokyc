@@ -3,13 +3,17 @@ import Button from "react-bootstrap/Button"
 import Form from "react-bootstrap/Form"
 import Accordion from "react-bootstrap/Accordion"
 import Card from "react-bootstrap/Card"
+
+import InvalidDataModal from "./InvalidDataModal"
+import SuccessfulSubmit from "./SuccessfulSubmit"
+
 import { Storage } from 'aws-amplify'
 
 class Upload extends React.Component {
     constructor(props) {
       super(props);
       
-      let documentType,frontImageFile,backImagefile;  
+      let documentType,frontImageFile,backImagefile, noFileSelected, isLoading, submitSuccess;  
       const documentTypes = [];
       documentTypes.push({key:"aadhaar", description:"Aadhaar Card"})
       documentTypes.push({key:"pancard", description:"PAN"})
@@ -19,42 +23,65 @@ class Upload extends React.Component {
             documentType,
             documentTypes,
             frontImageFile,
-            backImagefile
+            backImagefile,
+            noFileSelected,
+            isLoading,
+            submitSuccess
         }
       
         Storage.configure({ level: 'private' });  
     }
 
     onFrontChange(e) {
-        this.state.frontImageFile = e.target.files[0];
-        
+        // this.state.frontImageFile = e.target.files[0];
+        this.setState({frontImageFile:e.target.files[0]})
     }
 
     onBackChange(e) {
-        this.state.backImagefile = e.target.files[0];
-        
+        // this.state.backImagefile = e.target.files[0];
+        this.setState({backImagefile:e.target.files[0]})
         
     }
 
-    onSubmitFiles(evt) {
+    uploadToStorage = async (fileHandle,name) => {
+        try {
+          
+          return Storage.put(name, fileHandle, {
+            contentType: 'image/png',
+          })
+        } catch (err) {
+          console.log(err)
+        }
+      }
+
+    async onSubmitFiles(evt) {
+        this.setState({isLoading:true});
+
+        if(!this.state.frontImageFile || !this.state.backImagefile){
+            this.setState({noFileSelected:true})
+            this.setState({isLoading:false});
+            return;
+        }
+            
+
         // submit the two files
-        Storage.put('front.png', this.state.frontImageFile, {
-            contentType: 'image/png'
-        })
-        .then (result => console.log(result))
-        .catch(err => console.log(err));
+        let frontResponse = await this.uploadToStorage('front.png', this.state.frontImageFile);
+        console.log(frontResponse);
 
-        Storage.put('back.png', this.state.backImagefile, {
-            contentType: 'image/png'
-        })
-        .then (result => console.log(result))
-        .catch(err => console.log(err));
-
+        let backResponse = await this.uploadToStorage('back.png', this.state.backImagefile);
+        console.log(backResponse);
+        
+        
+        this.setState({isLoading:false});
+        this.setState({submitSuccess:true});
+            
     }
+
+    
 
     render() {
         
-        // this.state.activeDocument = this.state.documentTypes.find((docType) => docType.key == this.state.documentType );  
+        const isLoading = this.state.isLoading;
 
         return (
             <div>
@@ -85,8 +112,13 @@ class Upload extends React.Component {
                                     <Form.File id="exampleFormControlFile2" onChange={(evt) => this.onBackChange(evt)} label="Upload back page document" />
                                 </Form.Group>
 
-                                <Button variant="primary" type="button" onClick={(evt) => this.onSubmitFiles(evt)}>
-                                        Submit Documents
+                                <Button 
+                                    variant="primary" 
+                                    type="button" 
+                                    disabled={isLoading}
+                                    onClick={!isLoading ? (evt) => this.onSubmitFiles(evt) : null}
+                                    >    
+                                        {isLoading ? 'Submitting…' : 'Submit Documents'}
                                 </Button>
                             </Form>
 
@@ -95,6 +127,15 @@ class Upload extends React.Component {
                         </Card>
                 
                 </Accordion>
+                <InvalidDataModal
+                    show={this.state.noFileSelected}
+                    onHide={() => this.setState({noFileSelected:false})}
+                />
+                <SuccessfulSubmit
+                    show={this.state.submitSuccess}
+                    onHide={() => this.setState({submitSuccess:false})}
+                />
+
             </div> 
       );
     }
