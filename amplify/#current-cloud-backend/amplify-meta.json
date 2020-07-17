@@ -42,11 +42,61 @@
 				"RootUrl": "https://x53fjg7mk0.execute-api.us-east-1.amazonaws.com/dev",
 				"ApiId": "x53fjg7mk0"
 			},
-			"lastPushTimeStamp": "2020-07-09T13:09:16.408Z",
+			"lastPushTimeStamp": "2020-07-09T19:31:31.878Z",
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/api/livelinessdetector-cloudformation-template.json",
 				"logicalId": "apilivelinessdetector"
 			}
+		},
+		"AnalyseDocumentsAPI": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "analysedocslambda",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/api/AnalyseDocumentsAPI-cloudformation-template.json",
+				"logicalId": "apiAnalyseDocumentsAPI"
+			},
+			"lastPushTimeStamp": "2020-07-09T19:31:31.880Z",
+			"output": {
+				"ApiName": "AnalyseDocumentsAPI",
+				"RootUrl": "https://6ul699vz52.execute-api.us-east-1.amazonaws.com/dev",
+				"ApiId": "6ul699vz52"
+			},
+			"lastPushDirHash": "YAeq3Ihmk3KK5qAP5ZkSEzkAyNw="
+		},
+		"CompareFacesAPI": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "comparefaceslambda",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			],
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/api/CompareFacesAPI-cloudformation-template.json",
+				"logicalId": "apiCompareFacesAPI"
+			},
+			"lastPushTimeStamp": "2020-07-09T19:31:31.881Z",
+			"output": {
+				"ApiName": "CompareFacesAPI",
+				"RootUrl": "https://iiunxjhel7.execute-api.us-east-1.amazonaws.com/dev",
+				"ApiId": "iiunxjhel7"
+			},
+			"lastPushDirHash": "ckbM33W2YzUwrBVq2nj9ZBHUV+8="
 		}
 	},
 	"auth": {
@@ -64,7 +114,7 @@
 				"IdentityPoolName": "kycappc8e9e333_identitypool_c8e9e333__dev",
 				"UserPoolName": "kycappc8e9e333_userpool_c8e9e333"
 			},
-			"lastPushTimeStamp": "2020-07-09T13:09:16.410Z",
+			"lastPushTimeStamp": "2020-07-09T19:31:31.882Z",
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/auth/kycappc8e9e333-cloudformation-template.yml",
 				"logicalId": "authkycappc8e9e333"
@@ -77,7 +127,7 @@
 			"providerPlugin": "awscloudformation",
 			"type": "manual",
 			"output": {},
-			"lastPushTimeStamp": "2020-07-09T13:09:16.412Z",
+			"lastPushTimeStamp": "2020-07-09T19:31:31.883Z",
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/hosting/amplifyhosting-template.json",
 				"logicalId": "hostingamplifyhosting"
@@ -96,7 +146,7 @@
 				"Name": "livedetectorlambda-dev",
 				"LambdaExecutionRole": "kycappLambdaRoleee3e3ef1-dev"
 			},
-			"lastPushTimeStamp": "2020-07-09T13:09:16.425Z",
+			"lastPushTimeStamp": "2020-07-09T19:31:31.884Z",
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/function/livedetectorlambda-cloudformation-template.json",
 				"logicalId": "functionlivedetectorlambda"
@@ -116,11 +166,53 @@
 				"Name": "S3Triggerfc649c0f-dev",
 				"LambdaExecutionRole": "S3Triggerfc649c0fLambdaRolefc649c0f-dev"
 			},
-			"lastPushTimeStamp": "2020-07-09T13:09:16.419Z",
+			"lastPushTimeStamp": "2020-07-09T19:31:31.885Z",
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/function/S3Triggerfc649c0f-cloudformation-template.json",
 				"logicalId": "functionS3Triggerfc649c0f"
 			}
+		},
+		"analysedocslambda": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": [],
+			"lastBuildTimeStamp": "2020-07-09T18:32:36.195Z",
+			"lastPackageTimeStamp": "2020-07-09T18:32:38.825Z",
+			"distZipFilename": "analysedocslambda-326b6152534a3574346b-build.zip",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/function/analysedocslambda-cloudformation-template.json",
+				"logicalId": "functionanalysedocslambda"
+			},
+			"lastPushTimeStamp": "2020-07-09T19:31:31.886Z",
+			"output": {
+				"Region": "us-east-1",
+				"Arn": "arn:aws:lambda:us-east-1:365792799466:function:analysedocslambda-dev",
+				"Name": "analysedocslambda-dev",
+				"LambdaExecutionRole": "kycappLambdaRolee4cee4a3-dev"
+			},
+			"lastPushDirHash": "U1V/fYFe+/L4rSZDTScxsDRjh9Y="
+		},
+		"comparefaceslambda": {
+			"build": true,
+			"providerPlugin": "awscloudformation",
+			"service": "Lambda",
+			"dependsOn": [],
+			"lastBuildTimeStamp": "2020-07-09T19:30:05.084Z",
+			"lastPackageTimeStamp": "2020-07-09T19:30:07.303Z",
+			"distZipFilename": "comparefaceslambda-39584569504a2f766335-build.zip",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/function/comparefaceslambda-cloudformation-template.json",
+				"logicalId": "functioncomparefaceslambda"
+			},
+			"lastPushTimeStamp": "2020-07-09T19:31:31.890Z",
+			"output": {
+				"Region": "us-east-1",
+				"Arn": "arn:aws:lambda:us-east-1:365792799466:function:comparefaceslambda-dev",
+				"Name": "comparefaceslambda-dev",
+				"LambdaExecutionRole": "kycappLambdaRole6983a9e3-dev"
+			},
+			"lastPushDirHash": "gMsEzuA9vYbCh1AsbH3uXCE2C/E="
 		}
 	},
 	"storage": {
@@ -142,7 +234,7 @@
 				"BucketName": "kyc-storag-bucket204408-dev",
 				"Region": "us-east-1"
 			},
-			"lastPushTimeStamp": "2020-07-09T13:09:16.423Z",
+			"lastPushTimeStamp": "2020-07-09T19:31:31.888Z",
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-kycapp-dev-204408-deployment/amplify-cfn-templates/storage/s3-cloudformation-template.json",
 				"logicalId": "storagekycStorage"
