@@ -25,5 +25,35 @@
                 "livedetectorlambda": {}
             }
         }
+    },
+    "design": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-kycapp-design-132146-authRole",
+            "UnauthRoleArn": "arn:aws:iam::365792799466:role/amplify-kycapp-design-132146-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::365792799466:role/amplify-kycapp-design-132146-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-kycapp-design-132146-deployment",
+            "UnauthRoleName": "amplify-kycapp-design-132146-unauthRole",
+            "StackName": "amplify-kycapp-design-132146",
+            "StackId": "arn:aws:cloudformation:us-east-1:365792799466:stack/amplify-kycapp-design-132146/601ffba0-c802-11ea-b235-0a3bc12b2732",
+            "AmplifyAppId": "dr5b360wg6lbu"
+        },
+        "categories": {
+            "auth": {
+                "kycappc8e9e333": {}
+            },
+            "function": {
+                "livedetectorlambda": {},
+                "S3Triggerfc649c0f": {},
+                "analysedocslambda": {},
+                "comparefaceslambda": {}
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "dr5b360wg6lbu",
+                    "type": "manual"
+                }
+            }
+        }
     }
 }
