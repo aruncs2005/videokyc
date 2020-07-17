@@ -67,10 +67,10 @@ function get_face_object(resp_data){
     const [gesture1Details,setGesture1Details] = useState({});
     const [gesture2Details,setGesture2Details] = useState({});
 
-    
+
     useEffect(() => {
       setGestures(gest_data["gestures"])
-      shuffled_gestures = shuffleArray(gest_data["gestures"])
+      let shuffled_gestures = shuffleArray(gest_data["gestures"])
       setShuffledGestures(shuffled_gestures)
       console.log(shuffled_gestures);
 
