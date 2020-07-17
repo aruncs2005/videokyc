@@ -22,7 +22,10 @@
                 }
             },
             "function": {
-                "livedetectorlambda": {}
+                "livedetectorlambda": {},
+                "S3Triggerfc649c0f": {},
+                "analysedocslambda": {},
+                "comparefaceslambda": {}
             }
         }
     },
