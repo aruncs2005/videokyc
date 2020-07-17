@@ -4,3 +4,4 @@ amplify/.config/local-env-info.json
 build
 .vscode/settings.json
 src/aws-exports.js
+amplify/backend/amplify-meta.json
