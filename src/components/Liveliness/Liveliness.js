@@ -7,6 +7,15 @@ import Accordion from "react-bootstrap/Accordion"
 import Card from "react-bootstrap/Card"
 import livelinessAPI from "../../services/facefeatures";
 import ProgressBar from "react-bootstrap/ProgressBar"
+
+import useSound from 'use-sound'
+import eyesOpen from './audio/eyesOpen.mp3'
+import eyesClose from './audio/eyesClose.mp3'
+import headLeft from './audio/headLeft.mp3'
+import headRight from './audio/headRight.mp3'
+import mouthOpen from './audio/mouthOpen.mp3'
+import smile from './audio/smile.mp3'
+
 const videoConstraints = {
     width: 1280,
     height: 720,
@@ -48,6 +57,8 @@ function get_face_object(resp_data){
 
   export default ({setTabStatus,faceDetails,updateFaceDetails}) => {
     const [gestures, setGestures] = useState([]);
+    const [shuffledGestures, setShuffledGestures] = useState([]);
+    const [playAudio, setPlayAudio] = useState(null);
     const [showSpinner,setShowSpinner] = useState(false);
     const [alertMessage, setAlertMessage] = useState("You will be asked to do a series of random gestures which will enable us to detect a live feed.");
     const [showProgress, setShowProgress] = useState(false);
@@ -59,7 +70,37 @@ function get_face_object(resp_data){
 
     useEffect(() => {
       setGestures(gest_data["gestures"])
-    }, []);
+      let shuffled_gestures = shuffleArray(gest_data["gestures"])
+      setShuffledGestures(shuffled_gestures)
+      console.log(shuffled_gestures);
+
+    },[])
+
+    
+    
+
+    const audioMap = new Map([
+      ['eyesOpen',useSound(eyesOpen)],
+      ['eyesClose',useSound(eyesClose)],
+      ['headLeft',useSound(headLeft)],
+      ['headRight',useSound(headRight)],
+      ['mouthOpen',useSound(mouthOpen)],
+      ['smile',useSound(smile)]
+    ]) 
+
+    
+    useEffect(() => {
+
+      if(playAudio){
+        console.log("Play audio ",playAudio)
+
+        audioMap.get(playAudio)[0]();
+        
+      } 
+
+    },[playAudio])
+
+    
 
     const proceedToNext = () => {
       setTabStatus("UploadDocs");
@@ -124,6 +165,7 @@ function get_face_object(resp_data){
     const gesture_2 = (shuffled_gestures) => {
       console.log("invoking gesture 2");
       setAlertMessage(shuffled_gestures[1]["description"]);
+      setPlayAudio(shuffled_gestures[1]["name"]);
       setShowSpinner(true);
       setTimeout(() => {
         setShowSpinner(false);
@@ -163,7 +205,6 @@ function get_face_object(resp_data){
       const imageSrc = webcamRef.current.getScreenshot({width: 800, height: 450});
       console.log("Gesture name ::",shuffled_gestures[0]["description"]);
       //console.log("based 64 data :::",imageSrc);
-
       setShowSpinner(true);
       setTimeout(() => {
         const imageSrc2 = webcamRef.current.getScreenshot({width: 800, height: 450});       
@@ -205,14 +246,19 @@ function get_face_object(resp_data){
     };
 
 
-    const start_test = () => {
+  
+    function start_test(evt){
+
+      let shuffled_gestures = shuffledGestures
       setShowProgress(true);
-      let shuffled_gestures = shuffleArray(gestures)
       setShowSpinner(true)
       // wait for 3 seconds capture picture
       
       // wait for 100 ms and take snapshot
       setAlertMessage(shuffled_gestures[0]["description"]);
+      setPlayAudio(shuffled_gestures[0]["name"]);
+      console.log(shuffled_gestures);
+
       setTimeout(() => gesture_1(shuffled_gestures,gesture_2), 3000);
 
       
@@ -274,3 +320,5 @@ function get_face_object(resp_data){
       </>
     );
   };
+
+  

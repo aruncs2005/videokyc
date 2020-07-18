@@ -67,8 +67,8 @@
 				"Runtime": "python3.8",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplify-kycapp-dev-204408-deployment",
-					"S3Key": "amplify-builds/analysedocslambda-326b6152534a3574346b-build.zip"
+					"S3Bucket": "amplify-kycapp-design-132146-deployment",
+					"S3Key": "amplify-builds/analysedocslambda-795156585573454c6157-build.zip"
 				}
 			}
 		},

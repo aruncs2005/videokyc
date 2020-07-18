@@ -67,8 +67,8 @@
 				"Runtime": "python3.6",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplify-kycapp-dev-204408-deployment",
-					"S3Key": "amplify-builds/livedetectorlambda-6f614a50524d4b63384c-build.zip"
+					"S3Bucket": "amplify-kycapp-design-132146-deployment",
+					"S3Key": "amplify-builds/livedetectorlambda-317366676f45765a3963-build.zip"
 				}
 			}
 		},

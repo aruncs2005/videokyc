@@ -59,7 +59,7 @@
 				"Runtime": "nodejs10.x",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplify-kycapp-dev-204408-deployment",
+					"S3Bucket": "amplify-kycapp-design-132146-deployment",
 					"S3Key": "amplify-builds/S3Triggerfc649c0f-72514e6577782b473359-build.zip"
 				}
 			}
