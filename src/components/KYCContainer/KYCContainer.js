@@ -19,7 +19,6 @@ import Summary from '../../components/Summary'
 
 export default ({}) => {
 
-
   const [currentTabKey, setCurrentTabKey] = useState("welcome");
   const [faceDetails, setFaceDetails] = useState({
     liveFaceUrl:'',
@@ -31,8 +30,10 @@ export default ({}) => {
     gender:'',
     documentType:'',
     documentNumber:'',
+    documentNumberMasked:'',
     ageRange:{},
-    genderFromFace:''
+    genderFromFace:'',
+    issuingAuthority:''
   })
 
   const updateFaceDetails = (faceDetails) =>{
@@ -100,7 +101,7 @@ export default ({}) => {
     <div><Liveliness setTabStatus={setTabStatus} faceDetails={faceDetails} updateFaceDetails = {updateFaceDetails}/></div>
   </Tab>
   <Tab eventKey="UploadDocs" title="Upload Documents" disabled>
-  <div ><Upload setTabStatus={setTabStatus}/></div>
+  <div ><Upload setTabStatus={setTabStatus} faceDetails={faceDetails} updateFaceDetails = {updateFaceDetails}/></div>
   </Tab>
   <Tab eventKey="AnalysisDetails" title="Details of Analysis" disabled>
   <Summary setTabStatus={setTabStatus} faceDetails={faceDetails} />

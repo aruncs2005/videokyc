@@ -10,12 +10,15 @@ import ProgressBar from 'react-bootstrap/ProgressBar'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Table from 'react-bootstrap/Table'
 
+
 export default ({setTabStatus,faceDetails}) => {
   
     const [gestures, setGestures] = useState([]); 
     //const [liveFaceUrl, setLiveFaceUrl] = useState(faceDetails["liveFaceUrl"]);
 
-
+    useEffect(() => {
+        
+      }, []);
     
     return (
 
@@ -51,7 +54,7 @@ export default ({setTabStatus,faceDetails}) => {
                                 <Card.Header as="h5">Face Match Details</Card.Header>
                                 <Card.Body>
                                     <Card.Title>Match score</Card.Title>
-                                    <ProgressBar now="95" label="95 %" />
+                                    <ProgressBar now={faceDetails["matchScore"]} label={`${faceDetails["matchScore"]}%`}  />
                                     <Card.Text>
                                     Photo on left is the live picture and photo on right is obtained from ID document.
                                     </Card.Text>
@@ -61,7 +64,7 @@ export default ({setTabStatus,faceDetails}) => {
                             
                             </Col>
                             <Col xs={6} md={4} className="summary-image">
-                            <Image src="result2.png" thumbnail />
+                            <Image src={`data:image/jpeg;base64,${faceDetails["scannedFaceUrl"]}`}  thumbnail />
                             </Col>
                         </Row>
                     </Container>
@@ -86,27 +89,32 @@ export default ({setTabStatus,faceDetails}) => {
                                     <tr>
                                     
                                     <td>Name</td>
-                                    <td>Person name</td>
+                                    <td>{faceDetails["name"]}</td>
                                     </tr>
                                     <tr>
                                    
                                     <td>Date of Birth</td>
-                                    <td>01/01/2000</td>
+                                    <td>{faceDetails["dob"]}</td>
                                     </tr>
                                     <tr>
                                    
                                     <td>Gender</td>
-                                    <td>Female</td>
+                                    <td>{faceDetails["gender"]}</td>
                                     </tr>
                                     <tr>
                                    
                                    <td>ID Document Type</td>
-                                   <td>Aadhar</td>
+                                   <td>{faceDetails["documentType"]}</td>
                                    </tr>
                                    <tr>
                                    
                                    <td>ID Document Number</td>
-                                   <td>XXXX-XXXX-2323</td>
+                                   <td>{faceDetails["documentNumberMasked"]}</td>
+                                   </tr>
+                                   <tr>
+                                   
+                                   <td>Issuing Authority</td>
+                                   <td>{faceDetails["issuingAuthority"]}</td>
                                    </tr>
                                 </tbody>
                                 </Table>

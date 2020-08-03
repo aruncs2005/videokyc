@@ -8,6 +8,8 @@ import InvalidDataModal from "./InvalidDataModal"
 import SuccessfulSubmit from "./SuccessfulSubmit"
 
 import { Storage } from 'aws-amplify'
+import AnalyseDocs from "../../services/analyseDocs";
+import CompareFaces from "../../services/comparefaces";
 
 class Upload extends React.Component {
     constructor(props) {
@@ -29,8 +31,44 @@ class Upload extends React.Component {
             submitSuccess
         }
       
-        Storage.configure({ level: 'private' });  
+        //Storage.configure({ level: 'private' });  
     }
+
+    submitID(frontS3Path, backS3Path) {
+        AnalyseDocs.extractDetails({"path":frontS3Path,"type":this.state.documentType}).then(response =>{
+                let faceDetails = this.props["faceDetails"];
+                let data = {}
+                let score = 0
+                data["image_bytes_live"] = faceDetails["liveFaceUrl"]
+                data["image_bytes_scan"] = response["encoded_face_image"]
+                CompareFaces.compare(data).then(resp => {
+                        console.log(resp);
+                        if(resp["FaceMatches"].length > 0)
+                        {
+                            score = resp["FaceMatches"][0]["Similarity"];
+                        }
+                        console.log(response);
+                        faceDetails["scannedFaceUrl"] = response["encoded_face_image"];
+                        faceDetails["gender"] = response["textAnalysis"]["Gender"];
+                        faceDetails["name"] = response["textAnalysis"]["PersonName"];
+                        faceDetails["issuingAuthority"] = response["textAnalysis"]["IssuingEntity"];
+                        faceDetails["dob"] = response["textAnalysis"]["DOB"];
+                        faceDetails["documentNumber"] = response["textAnalysis"]["IDNumber"];
+                        faceDetails["documentNumberMasked"] = "XXXX-XXXX-" +  response["textAnalysis"]["IDNumber"].split(" ")[2];
+                        faceDetails["documentType"] = this.state.documentType;
+                        faceDetails["matchScore"] = score;
+                        console.log(faceDetails);
+                        this.setState({isLoading:false});
+                        this.props.updateFaceDetails(faceDetails);
+                        this.props.setTabStatus("AnalysisDetails");
+                    })
+                 
+                });       
+        
+    }
+
+    
+    
 
     onFrontChange(e) {
         // this.state.frontImageFile = e.target.files[0];
@@ -43,7 +81,7 @@ class Upload extends React.Component {
         
     }
 
-    uploadToStorage = async (fileHandle,name) => {
+    uploadToStorage = async (name,fileHandle) => {
         try {
           
           return Storage.put(name, fileHandle, {
@@ -58,6 +96,7 @@ class Upload extends React.Component {
         this.setState({isLoading:true});
 
         if(!this.state.frontImageFile || !this.state.backImagefile){
+            
             this.setState({noFileSelected:true})
             this.setState({isLoading:false});
             return;
@@ -66,14 +105,15 @@ class Upload extends React.Component {
 
         // submit the two files
         let frontResponse = await this.uploadToStorage('front.png', this.state.frontImageFile);
+        console.log("printing front response");
         console.log(frontResponse);
 
         let backResponse = await this.uploadToStorage('back.png', this.state.backImagefile);
         console.log(backResponse);
         
+        this.submitID(frontResponse["key"],backResponse["key"]);
         
-        this.setState({isLoading:false});
-        this.setState({submitSuccess:true});
+        //this.setState({submitSuccess:true});
             
     }
 
